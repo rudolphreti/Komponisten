@@ -17,7 +17,7 @@ Browser smoke test (requires Chromium at `/usr/bin/chromium` and the development
 
 ## Use
 
-The default project opens on first use. Changes are saved locally using IndexedDB; use **Projekt speichern** to download a portable JSON project including all images, and **Öffnen** to restore it. Browser storage may be cleared or unavailable: downloaded project files are the backup. No backend or account is required. Uploaded images stay in the browser.
+The default project opens on first use. Project and editor state are saved immediately in localStorage; large images are stored in IndexedDB to avoid localStorage quota limits. The project, selected card, front/back view, editor tab and search filter are restored after closing and reopening the browser. Existing IndexedDB projects migrate automatically. Storage errors are shown in the interface; use **Projekt speichern** to download a portable JSON project including all images, and **Öffnen** to restore it. Browser storage may be cleared or unavailable: downloaded project files are the backup. No backend or account is required. Uploaded images stay in the browser.
 
 **PDF exportieren** creates paired A4 pages, four cards per page, with horizontally mirrored backs. Print duplex, flip on the long edge, actual size / 100%. Try one sheet first to check your printer's alignment. Overlong text blocks export until shortened. The last sheet includes an empty slot. Layout selection is intentionally not implemented.
 
@@ -35,3 +35,5 @@ Drag the portrait directly on the front of the card to move it freely, including
 ### Card overview
 
 The editor displays a responsive grid with a selected-card editing panel, search and a shared front/back switch. Only the selected card accepts crop gestures. A mouse-wheel notch changes zoom by exactly five percentage points (100% → 105%); small touchpad deltas accumulate before a step. On narrow screens the grid scrolls above the editing panel. The PDF layout remains four cards per A4 page. `node tests/grid.mjs` checks the grid and zoom behaviour.
+
+`node tests/persistence.mjs` checks a full browser restart, immediate last-edit persistence, large images, editor restoration, storage quota errors, corrupt local state and migration from the previous IndexedDB project format.
