@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node tests/smoke.mjs && node tests/editing.mjs && node tests/cropping.mjs"
+    "test": "node tests/smoke.mjs && node tests/editing.mjs && node tests/cropping.mjs && node tests/grid.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",

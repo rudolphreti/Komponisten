@@ -31,3 +31,7 @@ In GitHub repository **Settings → Pages → Build and deployment**, select **G
 ### Mouse cropping
 
 Drag the portrait directly on the front of the card to move it freely, including outside the frame. Use the mouse wheel to zoom around the pointer; empty areas are white. Numeric controls allow precise positioning and zoom from 1% to 10,000%. Arrow keys move the focused image (Shift for larger steps), and + / - zoom. Reset restores the original centred fit. Cropping is included in saved projects and PDF export. `node tests/cropping.mjs` verifies these interactions.
+
+### Card overview
+
+The editor displays a responsive grid with a selected-card editing panel, search and a shared front/back switch. Only the selected card accepts crop gestures. A mouse-wheel notch changes zoom by exactly five percentage points (100% → 105%); small touchpad deltas accumulate before a step. On narrow screens the grid scrolls above the editing panel. The PDF layout remains four cards per A4 page. `node tests/grid.mjs` checks the grid and zoom behaviour.
