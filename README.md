@@ -27,3 +27,7 @@ Images and historical caveats come from the supplied PDF. Their inclusion does n
 
 Pushes to `main` build and deploy using `.github/workflows/pages.yml`.
 In GitHub repository **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. The workflow uses `/Komponisten/` as Vite's base path. The expected address is `https://rudolphreti.github.io/Komponisten/` once Pages is enabled and deployment succeeds.
+
+### Mouse cropping
+
+Drag the portrait directly on the front of the card to move it freely, including outside the frame. Use the mouse wheel to zoom around the pointer; empty areas are white. Numeric controls allow precise positioning and zoom from 1% to 10,000%. Arrow keys move the focused image (Shift for larger steps), and + / - zoom. Reset restores the original centred fit. Cropping is included in saved projects and PDF export. `node tests/cropping.mjs` verifies these interactions.
